@@ -13,7 +13,7 @@ function sortAccountsByLastName(accounts) {
 function getTotalNumberOfBorrows(account, books) {
   sum = 0
   
-    let borrowed = books.reduce((book) => {
+    books.reduce((book) => {
       for(let i in book){
         for(let j in book[i].borrows){
           book[i].borrows[j].id === account.id ? sum+=1 : null
