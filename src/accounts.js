@@ -11,16 +11,16 @@ function sortAccountsByLastName(accounts) {
   
  
 function getTotalNumberOfBorrows(account, books) {
-  let sum = 0
-
-  for(let i = 0 ; i < books.length; i++){
-    for(let j = 0; j < books[i].borrows.length; j++){
-      if(books[i].borrows[j].id === account.id){
-        sum+=1
+  sum = 0
+  
+    let borrowed = books.reduce((book) => {
+      for(let i in book){
+        for(let j in book[i].borrows){
+          book[i].borrows[j].id === account.id ? sum+=1 : null
+        }
       }
-    }
-  }
-  return sum;
+    }, books);
+    return sum
 }
 
 
